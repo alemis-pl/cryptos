@@ -22,6 +22,7 @@ crypto\bitfinex\domain\order\Order.class
 crypto\bitfinex\client\NewOrderClient.class
 crypto\bitfinex\domain\params\ParamsToSearch.class
 crypto\bitfinex\domain\pasttrades\PastTradesDto.class
+crypto\okex\authentication\OkexExchangeAuthentication.class
 crypto\bitfinex\authentication\RequestParamsModifier.class
 crypto\bitfinex\domain\apikey\ApiKeys.class
 crypto\bitfinex\client\CancelOrderClient.class

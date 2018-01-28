@@ -28,6 +28,7 @@ C:\Git\cryptos\exchanges\src\main\java\crypto\bitfinex\client\ActivePositionsCli
 C:\Git\cryptos\exchanges\src\main\java\crypto\bitfinex\domain\pasttrades\PastTradesDto.java
 C:\Git\cryptos\exchanges\src\main\java\crypto\bitfinex\domain\params\Params.java
 C:\Git\cryptos\exchanges\src\main\java\crypto\bitfinex\domain\positions\ActivePositionsDto.java
+C:\Git\cryptos\exchanges\src\main\java\crypto\okex\authentication\OkexExchangeAuthentication.java
 C:\Git\cryptos\exchanges\src\main\java\crypto\persistance\repository\ApiKeyRepository.java
 C:\Git\cryptos\exchanges\src\main\java\crypto\bitfinex\client\CancelAllOrdersClient.java
 C:\Git\cryptos\exchanges\src\main\java\crypto\bitfinex\authentication\ExchangeConnectionExceptions.java
