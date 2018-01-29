@@ -1,7 +1,7 @@
 package crypto.persistance.mapper;
 
-import crypto.bitfinex.domain.apikey.ApiKeys;
-import crypto.bitfinex.domain.apikey.ApiKeysDto;
+import crypto.persistance.apikey.ApiKeys;
+import crypto.persistance.apikey.ApiKeysDto;
 import org.springframework.stereotype.Component;
 
 @Component

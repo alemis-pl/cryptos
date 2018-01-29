@@ -1,5 +1,10 @@
 package crypto.okex.authentication;
 
+import crypto.okex.domain.params.OkexParamsModerator;
+import crypto.persistance.apikey.ApiKeys;
+import crypto.persistance.apikey.ApiKeysDto;
+import crypto.persistance.mapper.ApiKeysMapper;
+import crypto.persistance.service.DbService;
 import org.apache.http.*;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
@@ -14,6 +19,8 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HttpContext;
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 
@@ -27,10 +34,31 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class OkexExchangeAuthentication {
 
-    private static OkexExchangeAuthentication instance = new OkexExchangeAuthentication();
-    private static HttpClient httpClient;
+    @Value("${okex.main.url}")
+    private String mainUrl;
+
+    @Autowired
+    private DbService dbService;
+
+    @Autowired
+    private ApiKeysMapper apiKeysMapper;
+
+    @Autowired
+    private OkexRequestParamsModifier paramsModifier;
+
+    private HttpClient httpClient;
+
     private static long startTime = System.currentTimeMillis();
-    public static PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
+
+    private static PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
+
+    //Only for tests
+    private ApiKeysDto getApiKey() {
+        ApiKeys apiKeys = dbService.getApiKeysByExchange("okex");
+        return apiKeysMapper.mapApiKeysToApiKeysDto(apiKeys);
+    }
+
+
     private static ConnectionKeepAliveStrategy keepAliveStrategy = new DefaultConnectionKeepAliveStrategy() {
         public long getKeepAliveDuration(
                 HttpResponse response,
@@ -42,7 +70,6 @@ public class OkexExchangeAuthentication {
             }
             return keepAlive;
         }
-
     };
 
     private OkexExchangeAuthentication() {
@@ -64,16 +91,11 @@ public class OkexExchangeAuthentication {
             .setConnectionRequestTimeout(20000)
             .build();
 
-
-    public static OkexExchangeAuthentication getInstance() {
-        return instance;
-    }
-
     public HttpClient getHttpClient() {
         return httpClient;
     }
 
-    private HttpPost httpPostMethod(String url) {
+    public HttpPost httpPostMethod(String url) {
         return new HttpPost(url);
     }
 
@@ -81,11 +103,17 @@ public class OkexExchangeAuthentication {
         return new HttpGet(url);
     }
 
-    public String requestHttpPost(String url_prex, String url, Map<String,String> params) throws HttpException, IOException {
+    public String requestHttpPost(String endpoint, OkexParamsModerator paramsModerato) throws HttpException, IOException {
+        Map<String, String> params = new HashMap<>();
+        ApiKeysDto apiKeysDto = getApiKey();
+        params.put("api_key", apiKeysDto.getApiKey());
+        params.putAll(paramsModifier.modifyRequestParamMap(paramsModerato));
+        String sign = buildMysign(params, apiKeysDto.getApiSecretKey());
+        params.put("sign", sign);
 
         IdleConnectionMonitor();
-        url = url_prex + url;
-        HttpPost method = this.httpPostMethod(url);
+        String finalUrl = mainUrl + endpoint;
+        HttpPost method = httpPostMethod(finalUrl);
         List<NameValuePair> valuePairs = convertMap2PostParams(params);
         UrlEncodedFormEntity urlEncodedFormEntity = new UrlEncodedFormEntity(valuePairs, Consts.UTF_8);
         method.setEntity(urlEncodedFormEntity);
@@ -125,11 +153,10 @@ public class OkexExchangeAuthentication {
     }
 
 
-    private String buildMysign(Map<String, String> sArray, String secretKey) {
+    public String buildMysign(Map<String, String> params, String secretKey) {
         String mysign = "";
-
         try {
-            String prestr = createLinkString(sArray);
+            String prestr = createLinkString(params);
             prestr = prestr + "&secret_key=" + secretKey;
             mysign = getMD5String(prestr);
         }catch (Exception e ) {
@@ -139,7 +166,6 @@ public class OkexExchangeAuthentication {
     }
 
     private String createLinkString(Map<String, String> params) {
-
         List<String> keys = new ArrayList<String>(params.keySet());
         Collections.sort(keys);
         String prestr = "";

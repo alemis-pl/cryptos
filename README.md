@@ -11,6 +11,6 @@ Application is still under development.
 ### Prerequesites ###
 * Maven
 
-### Finished tasks ###
-* Integration with Bitfinex almost completed. 
-* Arrangements for integration with OKEx
+### Status ###
+* Integration with Bitfinex (code refactoring needed). 
+* Developing integration with Okex.
