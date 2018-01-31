@@ -2,7 +2,7 @@ package crypto.okex.client;
 
 import com.google.gson.Gson;
 import crypto.okex.authentication.OkexExchangeAuthentication;
-import crypto.okex.domain.order.OkexCanceldOrderDto;
+import crypto.okex.domain.order.OkexOrderById;
 import crypto.okex.domain.order.OkexCanceldOrderResponseDto;
 import crypto.okex.domain.params.OkexParams;
 import crypto.okex.domain.params.OkexParamsModerator;
@@ -26,7 +26,7 @@ public class OkexCancelOrderClient {
     @Autowired
     private OkexExchangeAuthentication exchangeAuthentication;
 
-    public OkexCanceldOrderResponseDto cancelOrder(OkexCanceldOrderDto canceldOrderDto) {
+    public OkexCanceldOrderResponseDto cancelOrder(OkexOrderById canceldOrderDto) {
         OkexCanceldOrderResponseDto canceldOrderResponseDto = null;
         OkexParamsModerator okexParamsModerator = new OkexParamsModerator(OkexParams.ORDER_BY_ID.getParams(), canceldOrderDto);
         try {

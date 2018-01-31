@@ -7,8 +7,9 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class OkexCanceldOrderDto {
+public class OkexOrdersInfoDto {
 
-    private String symbol;
-    private Long orderId;
+    private boolean result;
+    private OkexOrderInfoListDto orders;
+
 }

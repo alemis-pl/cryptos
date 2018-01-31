@@ -103,11 +103,11 @@ public class OkexExchangeAuthentication {
         return new HttpGet(url);
     }
 
-    public String requestHttpPost(String endpoint, OkexParamsModerator paramsModerato) throws HttpException, IOException {
+    public String requestHttpPost(String endpoint, OkexParamsModerator paramsModerator) throws HttpException, IOException {
         Map<String, String> params = new HashMap<>();
         ApiKeysDto apiKeysDto = getApiKey();
         params.put("api_key", apiKeysDto.getApiKey());
-        params.putAll(paramsModifier.modifyRequestParamMap(paramsModerato));
+        params.putAll(paramsModifier.modifyRequestParamMap(paramsModerator));
         String sign = buildMysign(params, apiKeysDto.getApiSecretKey());
         params.put("sign", sign);
 

@@ -1,6 +1,7 @@
 package crypto.okex.client;
 
 import com.google.gson.Gson;
+import crypto.bitfinex.authentication.BitfinexExchangeAuthentication;
 import crypto.okex.authentication.OkexExchangeAuthentication;
 import crypto.okex.domain.accountbalance.OkexAccountInfoDto;;
 import crypto.okex.domain.params.OkexParams;
@@ -24,16 +25,15 @@ public class OkexAccountInfoClient {
     @Autowired
     private OkexExchangeAuthentication exchangeAuthentication;
 
-
     public OkexAccountInfoDto getAccountInfo() {
         OkexAccountInfoDto accountInfo = null;
-        OkexParamsModerator okexParamsModerator = new OkexParamsModerator(OkexParams.WITHOUT_PARAMS.getParams(), null);
+        OkexParamsModerator okexParamsModerator = new OkexParamsModerator(OkexParams.WITHOUT_PARAMS.getParams());
 
         try {
             String result = exchangeAuthentication.requestHttpPost(accountInfoPath, okexParamsModerator);
             Gson gson = new Gson();
             accountInfo = gson.fromJson(result, OkexAccountInfoDto.class);
-            LOGGER.info("Account information successfully downloaded!");
+            LOGGER.info("Account information successfully downloaded! [" + accountInfo + "]");
         }catch (HttpException e) {
             LOGGER.error("Something wrong with the connection " + e.getMessage());
         }catch (IOException e) {

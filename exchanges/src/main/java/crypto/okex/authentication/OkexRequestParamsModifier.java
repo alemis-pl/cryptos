@@ -25,15 +25,15 @@ public class OkexRequestParamsModifier {
                 createRequestParam = createRequestParamsForNewOrder(paramsModerator);
                 break;
             case ORDER_BY_ID:
-                createRequestParam = createRequestParamsForCancelOrder(paramsModerator);
+                createRequestParam = createRequestParamsForManagingOrder(paramsModerator);
                 break;
         }
         return createRequestParam;
     }
 
-    private HashMap<String,String> createRequestParamsForCancelOrder(OkexParamsModerator paramsModerator) {
+    private HashMap<String,String> createRequestParamsForManagingOrder(OkexParamsModerator paramsModerator) {
         HashMap<String, String> createRequestParam = new HashMap<>();
-        createRequestParam.put("symbol", paramsModerator.getOrderDto().getSymbol());
+        createRequestParam.put("symbol", paramsModerator.getOkexCanceldOrderDto().getSymbol());
         createRequestParam.put("order_id", paramsModerator.getOkexCanceldOrderDto().getOrderId().toString());
         return createRequestParam;
     }
