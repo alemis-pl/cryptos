@@ -14,6 +14,8 @@ public class OkexRequestParamsModifier {
     private static final String WITHOUT_PARAMS = "WITHOUT_PARAMS";
     private static final String NEW_ORDER = "NEW_ORDER";
     private static final String ORDER_BY_ID = "ORDER_BY_ID";
+    private static final String ORDERS_HISTORY = "ORDERS_HISTORY";
+    private static final String ACCOUNT_RECORDS = "ACCOUNT_RECORDS";
 
     public Map<String, String> modifyRequestParamMap(OkexParamsModerator paramsModerator) {
         HashMap<String, String> createRequestParam = new HashMap<>();
@@ -27,7 +29,30 @@ public class OkexRequestParamsModifier {
             case ORDER_BY_ID:
                 createRequestParam = createRequestParamsForManagingOrder(paramsModerator);
                 break;
+            case ORDERS_HISTORY:
+                createRequestParam = createRequestParamsForOrdersHistory(paramsModerator);
+                break;
+            case ACCOUNT_RECORDS:
+                createRequestParam = createRequestParamsForAccountRecords(paramsModerator);
         }
+        return createRequestParam;
+    }
+
+    private HashMap<String,String> createRequestParamsForAccountRecords(OkexParamsModerator paramsModerator) {
+        HashMap<String, String> createRequestParam = new HashMap<>();
+        createRequestParam.put("symbol", paramsModerator.getOkexAccountRecordsRequestDto().getSymbol());
+        createRequestParam.put("type", paramsModerator.getOkexAccountRecordsRequestDto().getType());
+        createRequestParam.put("current_page", paramsModerator.getOkexAccountRecordsRequestDto().getCurrentPage());
+        createRequestParam.put("page_length", paramsModerator.getOkexAccountRecordsRequestDto().getPageLength());
+        return createRequestParam;
+    }
+
+    private HashMap<String,String> createRequestParamsForOrdersHistory(OkexParamsModerator paramsModerator) {
+        HashMap<String, String> createRequestParam = new HashMap<>();
+        createRequestParam.put("symbol", paramsModerator.getOkexOrderHistoryRequest().getSymbol());
+        createRequestParam.put("status", paramsModerator.getOkexOrderHistoryRequest().getStatus());
+        createRequestParam.put("current_page", paramsModerator.getOkexOrderHistoryRequest().getCurrentPage());
+        createRequestParam.put("page_length", paramsModerator.getOkexOrderHistoryRequest().getPageLength());
         return createRequestParam;
     }
 

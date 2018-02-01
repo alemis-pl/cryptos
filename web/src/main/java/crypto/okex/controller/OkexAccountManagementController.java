@@ -1,11 +1,10 @@
 package crypto.okex.controller;
 
 
-import crypto.okex.client.OkexAccountInfoClient;
-import crypto.okex.client.OkexCancelOrderClient;
-import crypto.okex.client.OkexNewOrderClient;
-import crypto.okex.client.OkexOrderInfoClient;
+import crypto.okex.client.*;
 import crypto.okex.domain.accountbalance.OkexAccountInfoDto;
+import crypto.okex.domain.accountrecords.OkexAccountRecordsListDto;
+import crypto.okex.domain.accountrecords.OkexAccountRecordsRequestDto;
 import crypto.okex.domain.order.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +26,12 @@ public class OkexAccountManagementController {
     @Autowired
     private OkexOrderInfoClient orderInfoClient;
 
+    @Autowired
+    private OkexOrdersHistoryClient ordersHistoryClient;
+
+    @Autowired
+    private OkexAccountRecordsHistoryClient accountRecordsHistoryClient;
+
     @RequestMapping(method = RequestMethod.POST, value = "/okex_account_info")
     private OkexAccountInfoDto getAccountInfo() {
         return accountInfoClient.getAccountInfo();
@@ -45,5 +50,15 @@ public class OkexAccountManagementController {
     @RequestMapping(method = RequestMethod.POST, value = "okex_orders_info")
     private OkexOrdersInfoDto getOrdersInfo(@RequestBody OkexOrderById orderById) {
         return orderInfoClient.getOrdersInfo(orderById);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "okex_orders_history")
+    private OkexOrdersHistoryDto getOrdersHistory(@RequestBody OkexOrderHistoryRequest okexOrderHistoryRequest) {
+        return ordersHistoryClient.getOrdersHistory(okexOrderHistoryRequest);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "okex_account_records")
+    private OkexAccountRecordsListDto getAccountRecords(@RequestBody OkexAccountRecordsRequestDto okexAccountRecordsRequestDto) {
+        return accountRecordsHistoryClient.getAccountHistory(okexAccountRecordsRequestDto);
     }
 }
