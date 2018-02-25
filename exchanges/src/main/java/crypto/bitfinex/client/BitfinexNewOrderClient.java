@@ -1,9 +1,9 @@
 package crypto.bitfinex.client;
 
 import com.google.gson.Gson;
+import crypto.authentication_help.ExchangeHttpResponse;
 import crypto.bitfinex.authentication.BitfinexExchangeAuthentication;
 import crypto.bitfinex.authentication.BitfinexExchangeConnectionExceptions;
-import crypto.bitfinex.authentication.BitfinexExchangeHttpResponse;
 import crypto.bitfinex.domain.order.BitfinexCreatedOrderDto;
 import crypto.bitfinex.domain.order.BitfinexOrderDto;
 import crypto.bitfinex.domain.params.BitfinexParamsModerator;
@@ -33,7 +33,7 @@ public class BitfinexNewOrderClient {
         BitfinexParamsModerator paramsModerator = new BitfinexParamsModerator(params, orderDto);
 
         try {
-            BitfinexExchangeHttpResponse exchangeHttpResponse = exchangeAuthentication.sendExchangeRequest(newOrder, POST, paramsModerator);
+            ExchangeHttpResponse exchangeHttpResponse = exchangeAuthentication.sendExchangeRequest(newOrder, POST, paramsModerator);
             LOGGER.info("New Order information: " + exchangeHttpResponse);
 
             Gson gson = new Gson();

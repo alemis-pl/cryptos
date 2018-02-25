@@ -1,9 +1,9 @@
 package crypto.bitfinex.client;
 
 import com.google.gson.Gson;
+import crypto.authentication_help.ExchangeHttpResponse;
 import crypto.bitfinex.authentication.BitfinexExchangeAuthentication;
 import crypto.bitfinex.authentication.BitfinexExchangeConnectionExceptions;
-import crypto.bitfinex.authentication.BitfinexExchangeHttpResponse;
 import crypto.bitfinex.domain.params.BitfinexParams;
 import crypto.bitfinex.domain.params.BitfinexParamsModerator;
 import crypto.bitfinex.domain.params.BitfinexParamsToSearch;
@@ -35,7 +35,7 @@ public class BitfinexActivePositionsClient {
         BitfinexParamsModerator paramsModerator = new BitfinexParamsModerator(BitfinexParams.WITHOUT_PARAMS.getParams(), paramsToSearch);
 
         try {
-            BitfinexExchangeHttpResponse exchangeHttpResponse = exchangeAuthentication.sendExchangeRequest(activePositions, POST, paramsModerator);
+            ExchangeHttpResponse exchangeHttpResponse = exchangeAuthentication.sendExchangeRequest(activePositions, POST, paramsModerator);
             LOGGER.info("Active positions information: " + exchangeHttpResponse);
 
             Gson gson = new Gson();

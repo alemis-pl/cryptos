@@ -6,6 +6,7 @@ Application is still under development.
 ### Build With ###
 * Java - main programming language
 * Spring Boot, Spring MVC, Spring WEB, Hibernate - frameworks
+* MySQL - database
 * Maven - dependency management
 
 
@@ -13,5 +14,6 @@ Application is still under development.
 * Maven
 
 ### Status ###
-* Integration with Bitfinex (code refactoring needed). 
-* Developing integration with Okex.
+* Integration with Bitfinex almost finished (code refactoring needed). 
+* Integration with Okex almost finished (code refactoring needed).
+* Integration with Bitstamp under development.

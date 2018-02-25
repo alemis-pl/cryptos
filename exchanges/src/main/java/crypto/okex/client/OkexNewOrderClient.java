@@ -21,7 +21,7 @@ public class OkexNewOrderClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OkexNewOrderClient.class);
 
-    @Value("${okex.order.cancel}")
+    @Value("${okex.order.new}")
     private String newOrderPath;
 
     @Autowired
@@ -29,13 +29,13 @@ public class OkexNewOrderClient {
 
     public OkexCreatedOrderDto placeNewOrder(OkexOrderDto orderDto) {
         OkexCreatedOrderDto createdOrderDto = null;
-        OkexParamsModerator okexParamsModerator = new OkexParamsModerator(OkexParams.WITHOUT_PARAMS.getParams(), orderDto);
+        OkexParamsModerator okexParamsModerator = new OkexParamsModerator(OkexParams.NEW_ORDER.getParams(), orderDto);
         try {
             String result = exchangeAuthentication.requestHttpPost(newOrderPath, okexParamsModerator);
             System.out.println(result);
             Gson gson = new Gson();
             createdOrderDto = gson.fromJson(result, OkexCreatedOrderDto.class);
-            LOGGER.info("Account information successfully downloaded!");
+            LOGGER.info("New order successfully placed! [ " + createdOrderDto.getOrder_id() +" ]");
         }catch (HttpException e) {
             LOGGER.error("Something wrong with the connection " + e.getMessage());
         }catch (IOException e) {

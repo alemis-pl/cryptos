@@ -1,9 +1,9 @@
 package crypto.bitfinex.client;
 
 import com.google.gson.Gson;
+import crypto.authentication_help.ExchangeHttpResponse;
 import crypto.bitfinex.authentication.BitfinexExchangeAuthentication;
 import crypto.bitfinex.authentication.BitfinexExchangeConnectionExceptions;
-import crypto.bitfinex.authentication.BitfinexExchangeHttpResponse;
 import crypto.bitfinex.domain.params.BitfinexParams;
 import crypto.bitfinex.domain.params.BitfinexParamsModerator;
 import crypto.bitfinex.domain.params.BitfinexParamsToSearch;
@@ -36,7 +36,7 @@ public class BitfinexPastTradesClient {
         BitfinexParamsModerator paramsModerator = new BitfinexParamsModerator(BitfinexParams.PAST_TRADES.getParams(), paramsToSearch);
 
         try {
-            BitfinexExchangeHttpResponse exchangeHttpResponse = exchangeAuthentication.sendExchangeRequest(pastTrades, POST, paramsModerator);
+            ExchangeHttpResponse exchangeHttpResponse = exchangeAuthentication.sendExchangeRequest(pastTrades, POST, paramsModerator);
 
             LOGGER.info("Past trades information: " + exchangeHttpResponse);
 

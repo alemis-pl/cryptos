@@ -1,6 +1,9 @@
 package crypto.bitfinex.authentication;
 
 import com.google.gson.Gson;
+import crypto.authentication_help.ContentGenerator;
+import crypto.authentication_help.ExchangeHttpResponse;
+import crypto.authentication_help.HmacEncoder;
 import crypto.persistance.apikey.ApiKeys;
 import crypto.persistance.apikey.ApiKeysDto;
 import crypto.bitfinex.domain.params.BitfinexParamsModerator;
@@ -13,11 +16,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 import java.io.*;
 import java.net.*;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Map;
 
@@ -27,9 +27,6 @@ public class BitfinexExchangeAuthentication {
 
     @Value("${bitfinex.main.url}")
     private String bitfinexMainUrl;
-
-    @Value("${algorithm.hmac}")
-    private String algorithmHMACSHA384;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BitfinexExchangeAuthentication.class);
 
@@ -46,6 +43,12 @@ public class BitfinexExchangeAuthentication {
     private ApiKeysMapper apiKeysMapper;
 
     @Autowired
+    private HmacEncoder hmacEncoder;
+
+    @Autowired
+    private ContentGenerator contentGenerator;
+
+    @Autowired
     private BitfinexRequestParamsModifier responseParamsModifier;
 
     //Actually, api operates on 1 api key for 1 user.
@@ -56,7 +59,7 @@ public class BitfinexExchangeAuthentication {
         return apiKeysMapper.mapApiKeysToApiKeysDto(apiKeys);
     }
 
-    public BitfinexExchangeHttpResponse sendExchangeRequest(String urlPath, String httpMethod, BitfinexParamsModerator paramsModerator)  throws IOException {
+    public ExchangeHttpResponse sendExchangeRequest(String urlPath, String httpMethod, BitfinexParamsModerator paramsModerator)  throws IOException {
         ApiKeysDto apiKeysDto = getUserApiKeys();
         String errorMSG= "";
         HttpURLConnection connection = null;
@@ -74,12 +77,12 @@ public class BitfinexExchangeAuthentication {
 
             String payload = gson.toJson(params);
             String payloadBase64 = createPayloadBase64(payload);
-            String payloadSha384hmac = hmacDigest(payloadBase64, apiKeysDto.getApiSecretKey(), algorithmHMACSHA384);
+            String payloadSha384hmac = hmacEncoder.hmacDigest(mac, payloadBase64, apiKeysDto.getApiSecretKey());
 
             connection = setHttpUrlConnParameters(url, httpMethod, apiKeysDto, payloadBase64, payloadSha384hmac);
-            String content = createContent(connection);
+            String content = contentGenerator.createContent(connection);
 
-            return new BitfinexExchangeHttpResponse(connection.getResponseCode(), connection.getResponseMessage(),content);
+            return new ExchangeHttpResponse(connection.getResponseCode(), connection.getResponseMessage(), content);
         }catch(MalformedURLException e) {
             LOGGER.error(BitfinexExchangeConnectionExceptions.UNEXPECTED_IO_ERROR_MSG.getException(), e);
         }catch(SocketTimeoutException e) {
@@ -119,7 +122,7 @@ public class BitfinexExchangeAuthentication {
                 connection.disconnect();
             }
         }
-        return new BitfinexExchangeHttpResponse(0, null, null);
+        return new ExchangeHttpResponse(0, null, null);
     }
 
     private long getNonce() {
@@ -133,17 +136,6 @@ public class BitfinexExchangeAuthentication {
     private String createPayloadBase64(String payload) throws UnsupportedEncodingException {
         String payloadBase64 = Base64.getEncoder().encodeToString(payload.getBytes("UTF-8"));
         return payloadBase64;
-    }
-
-    private String createContent(HttpURLConnection connection) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        byte[] buf = new byte[1024];
-        int n = 0;
-        while((n = connection.getInputStream().read(buf)) >= 0) {
-            baos.write(buf, 0, n);
-        }
-        byte[] content = baos.toByteArray();
-        return new String(content);
     }
 
     private HttpURLConnection setHttpUrlConnParameters(URL url, String httpMethod, ApiKeysDto apiKeysDto, String payloadBase64, String payloadSha384hmac) throws IOException {
@@ -169,33 +161,5 @@ public class BitfinexExchangeAuthentication {
         params.put("request", urlPath);
         params.put("nonce", Long.toString(getNonce()));
         return params;
-    }
-
-    private String hmacDigest(String msg, String keyString, String algo) {
-        String digest = null;
-        try {
-            SecretKeySpec key = new SecretKeySpec((keyString).getBytes("UTF-8"), algo);
-            mac = Mac.getInstance(algo);
-            mac.init(key);
-
-            byte[] bytes = mac.doFinal(msg.getBytes("ASCII"));
-
-            StringBuffer hash = new StringBuffer();
-            for (int i = 0; i < bytes.length; i++) {
-                String hex = Integer.toHexString(0xFF & bytes[i]);
-                if (hex.length() == 1) {
-                    hash.append('0');
-                }
-                hash.append(hex);
-            }
-            digest = hash.toString();
-        } catch (UnsupportedEncodingException e) {
-            LOGGER.error(BitfinexExchangeConnectionExceptions.ENCODING_ERROR.getException(), e);
-        } catch (InvalidKeyException e) {
-            LOGGER.error(BitfinexExchangeConnectionExceptions.INVALID_KEY_ERROR.getException(), e);
-        } catch (NoSuchAlgorithmException e) {
-            LOGGER.error(BitfinexExchangeConnectionExceptions.LACK_OF_ALGORITHM_ERROR.getException(), e);
-        }
-        return digest;
     }
 }

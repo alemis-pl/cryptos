@@ -34,9 +34,10 @@ public class OkexAccountRecordsHistoryClient {
         OkexParamsModerator okexParamsModerator = new OkexParamsModerator(OkexParams.ACCOUNT_RECORDS.getParams(), okexAccountRecordsRequestDto);
         try {
             String result = exchangeAuthentication.requestHttpPost(accountRecords, okexParamsModerator);
+            System.out.println(result);
             Gson gson = new Gson();
             accountRecordsListDto = gson.fromJson(result, OkexAccountRecordsListDto.class);
-            LOGGER.info("Account records successfully downloaded! [" + accountRecordsListDto + "]" );
+            LOGGER.info("Account records successfully downloaded! [" + accountRecordsListDto.toString() + "]" );
         }catch (HttpException e) {
             LOGGER.error("Something wrong with the connection " + e.getMessage());
         }catch (IOException e) {

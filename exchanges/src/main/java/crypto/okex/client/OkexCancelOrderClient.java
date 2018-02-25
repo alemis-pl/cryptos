@@ -34,7 +34,7 @@ public class OkexCancelOrderClient {
             System.out.println(result);
             Gson gson = new Gson();
             canceldOrderResponseDto = gson.fromJson(result, OkexCanceldOrderResponseDto.class);
-            LOGGER.info("Order successfully canceled!");
+            LOGGER.info("Order ["+ canceldOrderResponseDto.getOrder_id() + "] successfully canceled!");
         }catch (HttpException e) {
             LOGGER.error("Something wrong with the connection " + e.getMessage());
         }catch (IOException e) {

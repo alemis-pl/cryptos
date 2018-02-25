@@ -30,7 +30,6 @@ public class BitfinexParamsToSearch {
         this.wallet = wallet;
     }
 
-
     public BitfinexParamsToSearch(String currency, Long sinceTimestamp) {
         this.currency = currency;
         this.sinceTimestamp = sinceTimestamp;

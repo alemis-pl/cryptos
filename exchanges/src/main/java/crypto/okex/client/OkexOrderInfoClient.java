@@ -37,7 +37,7 @@ public class OkexOrderInfoClient {
             String result = exchangeAuthentication.requestHttpPost(orderInfoPath, okexParamsModerator);
             Gson gson = new Gson();
             ordersInfo = gson.fromJson(result, OkexOrdersInfoDto.class);
-            LOGGER.info("Orders information successfully downloaded! [" + ordersInfo + "]" );
+            LOGGER.info("Orders [" + ordersInfo + "] information successfully downloaded!" );
         }catch (HttpException e) {
             LOGGER.error("Something wrong with the connection " + e.getMessage());
         }catch (IOException e) {

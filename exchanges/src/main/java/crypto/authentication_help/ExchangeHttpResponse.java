@@ -1,4 +1,4 @@
-package crypto.bitfinex.authentication;
+package crypto.authentication_help;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class BitfinexExchangeHttpResponse {
+public class ExchangeHttpResponse {
 
     private int statusCode;
     private String responseMessage;
