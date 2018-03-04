@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class ApiKeysMapper {
 
     public ApiKeysDto mapApiKeysToApiKeysDto(ApiKeys apiKeys) {
-        return new ApiKeysDto(apiKeys.getApiKey(), apiKeys.getApiSecretKey());
+        return new ApiKeysDto(apiKeys.getApiKey(), apiKeys.getApiSecretKey(), apiKeys.getClientId());
     }
 }

@@ -13,4 +13,5 @@ public class ApiKeysDto {
 
     private String apiKey;
     private String apiSecretKey;
+    private String clientId;
 }

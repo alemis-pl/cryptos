@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import crypto.authentication_help.ContentGenerator;
 import crypto.authentication_help.ExchangeHttpResponse;
 import crypto.authentication_help.HmacEncoder;
+import crypto.authentication_help.HmacExceptionsMsg;
 import crypto.persistance.apikey.ApiKeys;
 import crypto.persistance.apikey.ApiKeysDto;
 import crypto.persistance.mapper.ApiKeysMapper;
@@ -17,13 +18,15 @@ import org.springframework.stereotype.Component;
 import javax.crypto.Mac;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 @Component
 public class BitstampExchangeAuthentication {
 
-    @Value("bitstamp.main.url")
+    @Value("${bitstamp.main.url}")
     private String bitstampMainUrl;
 
     @Value("${algorithm.hmac}")
@@ -34,7 +37,6 @@ public class BitstampExchangeAuthentication {
     private long nonce = System.currentTimeMillis();
     private int connectionTimeout;
 
-    private Gson gson = new Gson();
     private Mac mac;
 
     @Autowired
@@ -59,22 +61,35 @@ public class BitstampExchangeAuthentication {
 
     public ExchangeHttpResponse sendRequest(String urlPath, String httpMethod) {
         ApiKeysDto apiKeysDto = getUserApiKeys();
-        String userId = null; // change needed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         HttpURLConnection connection = null;
         Long nonce = getNonce();
 
         try {
+            final StringBuilder postData = new StringBuilder("");
+            HashMap<String, String> params = createParams(apiKeysDto, nonce);
+
+            params.entrySet().forEach(param ->  {
+                if (postData.length() > 0) {
+                    postData.append("&");
+                }
+                postData.append(param.getKey());
+                postData.append("=");
+                try {
+                    postData.append(URLEncoder.encode(param.getValue(), "UTF-8"));
+                }catch (UnsupportedEncodingException e) {
+                    LOGGER.error(HmacExceptionsMsg.ENCODING_ERROR.getException(), e);
+                }
+            });
+
             URL url = new URL(bitstampMainUrl + urlPath);
+
             LOGGER.debug("Using following URL for API call: " + url);
 
-            String parameters = provideParamteres(userId, apiKeysDto, nonce);
-
-            connection = setHttpUrlConnParameters(url, httpMethod, parameters);
+            connection = setHttpUrlConnParameters(url, httpMethod, postData.toString());
             String content = contentGenerator.createContent(connection);
 
             return new ExchangeHttpResponse(connection.getResponseCode(), connection.getResponseMessage(), content);
-
         } catch (MalformedURLException e) {
             LOGGER.error(BitstampExchangeConnectionExceptions.UNEXPECTED_IO_ERROR_MSG.getException(), e);
         } catch(SocketTimeoutException e) {
@@ -98,27 +113,27 @@ public class BitstampExchangeAuthentication {
     private HttpURLConnection setHttpUrlConnParameters(URL url, String httpMethod, String parameters) throws IOException {
         byte[] postData = parameters.getBytes(StandardCharsets.UTF_8);
 
-        HttpURLConnection connection = null;
-        connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod(httpMethod);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setDoOutput(true);
-        connection.setDoInput(true);
         connection.setInstanceFollowRedirects(false);
+        connection.setRequestMethod(httpMethod);
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        connection.addRequestProperty("charset", "UTF-8");
+        connection.addRequestProperty("charset", "utf-8");
         connection.addRequestProperty("Content-Length", Integer.toString(postData.length));
         connection.setUseCaches(false);
         return connection;
     }
 
-    private String provideParamteres(String userId, ApiKeysDto apiKeys, Long nonce) {
-        String parameters = "key=" + apiKeys.getApiKey() + "%signature=" + createSignature(userId, apiKeys.getApiSecretKey(), nonce) + "&nonce=" + nonce;
-        return parameters;
+    private String createSignature(Long nonce, ApiKeysDto apiKeys) {
+        String signature = hmacEncoder.hmacDigistBitstamp2(mac, nonce, apiKeys);
+        return signature;
     }
 
-    private String createSignature(String userId, String secretKey, Long nonce) {
-        String message = nonce + userId + secretKey;
-        String signature = hmacEncoder.hmacDigest(mac, message, secretKey);
-        return signature;
+    private HashMap<String, String> createParams(ApiKeysDto apiKeys, Long nonce) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("key", apiKeys.getApiKey());
+        params.put("nonce", Long.toString(nonce));
+        params.put("signature", createSignature(nonce, apiKeys));
+        return params;
     }
 }

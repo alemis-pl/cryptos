@@ -11,6 +11,7 @@ public class ContentGenerator {
 
     public String createContent(HttpURLConnection connection) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        System.out.println(baos);
         byte[] buf = new byte[1024];
         int n = 0;
         while((n = connection.getInputStream().read(buf)) >= 0) {

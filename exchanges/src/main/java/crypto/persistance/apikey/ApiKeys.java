@@ -31,6 +31,9 @@ public class ApiKeys {
     @Column(name="api_secret_key")
     private String apiSecretKey;
 
+    @Column(name="client_id")
+    private String clientId;
+
     @Column(name="exchange")
     private String exchange;
 }

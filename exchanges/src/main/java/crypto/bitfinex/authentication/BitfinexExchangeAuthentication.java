@@ -77,7 +77,7 @@ public class BitfinexExchangeAuthentication {
 
             String payload = gson.toJson(params);
             String payloadBase64 = createPayloadBase64(payload);
-            String payloadSha384hmac = hmacEncoder.hmacDigest(mac, payloadBase64, apiKeysDto.getApiSecretKey());
+            String payloadSha384hmac = hmacEncoder.hmacDigestBitfinex(mac, payloadBase64, apiKeysDto.getApiSecretKey());
 
             connection = setHttpUrlConnParameters(url, httpMethod, apiKeysDto, payloadBase64, payloadSha384hmac);
             String content = contentGenerator.createContent(connection);

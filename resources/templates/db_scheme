@@ -1,2 +1,2 @@
-create table api_keys(id int not null auto_increment, api_key varchar(255), api_secret_key varchar(255), exchange varchar(255), primary key (id));
+create table api_keys(id int not null auto_increment, api_key varchar(255), api_secret_key varchar(255), client_id varchar(255), exchange varchar(255), primary key (id));
 
