@@ -1,6 +1,6 @@
 # Cryptos #
 
-Cryptos is the application which main goal is to simplify portfolio management for investors and traders who deal with cryptocurrencies. 
+Cryptos is the application which main goal is to simplify portfolio management for investors and traders who deal with cryptocurrencies/forex. 
 Application is still under development. 
 
 ### Build With ###
@@ -16,4 +16,5 @@ Application is still under development.
 ### Status ###
 * Integration with Bitfinex almost finished (code refactoring needed). 
 * Integration with Okex almost finished (code refactoring needed).
-* Integration with Bitstamp under development.
+* Integration with Bitstamp under development (problem with authorization).
+* Integration with Oanda under development - first steps.

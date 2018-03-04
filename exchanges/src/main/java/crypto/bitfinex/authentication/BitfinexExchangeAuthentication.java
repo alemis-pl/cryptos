@@ -158,7 +158,7 @@ public class BitfinexExchangeAuthentication {
 
     private Map<String, Object> createFinalParams(BitfinexParamsModerator paramsModerator, String urlPath) {
         Map<String, Object> params = responseParamsModifier.modifyRequestParamMap(paramsModerator);
-        params.put("request", urlPath);
+        params.put("pricing", urlPath);
         params.put("nonce", Long.toString(getNonce()));
         return params;
     }

@@ -36,7 +36,6 @@
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.1.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.3.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.10" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.10" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.3.13.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.3.13.RELEASE" level="project" />
@@ -46,6 +45,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.3.13.RELEASE" level="project" />
     <orderEntry type="module" module-name="analysis" />
     <orderEntry type="module" module-name="exchanges" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.2" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.18" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:1.5.9.RELEASE" level="project" />

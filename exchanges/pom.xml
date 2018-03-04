@@ -11,6 +11,18 @@
 
     <artifactId>exchanges</artifactId>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
