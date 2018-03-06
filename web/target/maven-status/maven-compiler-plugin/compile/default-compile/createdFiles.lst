@@ -1,3 +1,4 @@
 crypto\okex\controller\OkexAccountManagementController.class
+crypto\bitstamp\controller\BitstampAccountManagementController.class
 CryptosApplication.class
 crypto\bitfinex\controller\BitfinexAccountManagementController.class
