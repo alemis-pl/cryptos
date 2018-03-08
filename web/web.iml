@@ -44,7 +44,7 @@
     <orderEntry type="module" module-name="analysis" />
     <orderEntry type="module" module-name="exchanges" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.2" level="project" />
-    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.18" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.20" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.9.9" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.7.4" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.4" level="project" />
