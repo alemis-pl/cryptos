@@ -1,6 +1,7 @@
 package crypto.oanda.authentication;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ public class OandaAuthentication {
 
     private static final String STANDARD_REQUEST = "STANDARD_REQUEST";
     private static final String ORDER_REQUEST = "ORDER_REQUEST";
+    private static final String ORDER_CANCEL = "ORDER_CANCEL";
 
     private RestTemplate restTemplate;
 
@@ -24,20 +26,23 @@ public class OandaAuthentication {
         this.restTemplate = restTemplate;
     }
 
-    public HttpEntity createHeaders(String token, String accountId, String requestType) {
+    public HttpEntity createHeaders(OandaHeadersParameters parameters) {
         HttpEntity entity = null;
 
-        switch (requestType) {
+        switch (parameters.getRequestType()) {
             case STANDARD_REQUEST:
-                entity = new HttpEntity(createStandardHeaders(token));
+                entity = new HttpEntity(createStandardHeaders(parameters.getToken()));
                  log.info("Entity for standard request created!");
                 break;
             case ORDER_REQUEST:
-                entity = new HttpEntity(createOrderHeaders(token));
+                entity = new HttpEntity(parameters.getParameters(), createOrderHeaders(parameters.getToken()));
                 log.info("Entity for order request created!");
                 break;
+            case ORDER_CANCEL:
+                entity = new HttpEntity(parameters.getParameters(), createCancelOrderHeaders(parameters.getToken()));
+                break;
             default:
-                log.info("No entity created! Incorrect request type [" + requestType + "]");
+                log.info("No entity created! Incorrect request type [" + parameters.getRequestType() + "]");
         }
         return entity;
     }
@@ -51,8 +56,15 @@ public class OandaAuthentication {
 
     private HttpHeaders createOrderHeaders(String token) {
         HttpHeaders headers = createStandardHeaders(token);
-        //implementation needed!
+        headers.set("X-Accept-Datetime-Format", "UNIX");
+        headers.set("X-HTTP-Method-Override", "POST");
+        return headers;
+    }
 
+    private HttpHeaders createCancelOrderHeaders(String token) {
+        HttpHeaders headers = createStandardHeaders(token);
+        headers.set("X-Accept-Datetime-Format", "UNIX");
+        headers.set("X-HTTP-Method-Override", "PUT");
         return headers;
     }
 
@@ -60,10 +72,20 @@ public class OandaAuthentication {
         T response = null;
 
         try {
-            ResponseEntity<T> responseEntity = restTemplate.exchange(url, httpMethod, entity, typeOfResponse);
-            if(responseEntity.getStatusCode() == HttpStatus.OK && responseEntity.hasBody()) {
-                response = responseEntity.getBody();
+
+            if (HttpMethod.POST.equals(httpMethod)) {
+                restTemplate.getMessageConverters().add(new FormHttpMessageConverter());
+                response = restTemplate.postForObject(url, entity, typeOfResponse);
+            }else if(HttpMethod.PUT.equals(httpMethod)) {
+                restTemplate.getMessageConverters().add(new FormHttpMessageConverter());
+                response = restTemplate.exchange(url, HttpMethod.PUT, entity, typeOfResponse).getBody();
+            }else {
+                ResponseEntity<T> responseEntity = restTemplate.exchange(url, httpMethod, entity, typeOfResponse);
+                if(responseEntity.getStatusCode() == HttpStatus.OK && responseEntity.hasBody()) {
+                    response = responseEntity.getBody();
+                }
             }
+
         }catch (HttpStatusCodeException e) {
             log.error("Could not process response! method = " + httpMethod + "; url = " + url, e.getMessage());
             log.error(e.getResponseBodyAsString());

@@ -1,10 +1,12 @@
 package crypto.oanda.domain.order;
 
+import java.math.BigDecimal;
+
 public class OandaTrailingStopLossDetails {
-    private double distance;
+    private BigDecimal distance;
     private OandaOrder.OandaTimeInForce timeInForce;
 
-    public OandaTrailingStopLossDetails(double distance) {
+    public OandaTrailingStopLossDetails(BigDecimal distance) {
         this.distance = distance;
     }
 }

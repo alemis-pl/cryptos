@@ -1,14 +1,18 @@
 package crypto.oanda.domain.order;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import crypto.oanda.domain.date.OandaDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OandaOrder {
 
     private String id;
@@ -18,8 +22,8 @@ public class OandaOrder {
     private OandaOrderType type;
     private String instrument;
     private Integer units;
-    private Double price;
-    private Double priceBound;
+    private BigDecimal price;
+    private BigDecimal priceBound;
     private OandaTimeInForce timeInForce;
     private String gtdTime = OandaDateTime.rfc3339Plus2Days();
     private OrderPositionFill positionFill;

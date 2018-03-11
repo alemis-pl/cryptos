@@ -4,14 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class OandaOrderDetails {
-    private double price;
+    private BigDecimal price;
     private OandaOrder.OandaTimeInForce timeInForce;
 
-    public OandaOrderDetails(double price) {
+    public OandaOrderDetails(BigDecimal price) {
         this.price = price;
     }
 }
