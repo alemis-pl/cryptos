@@ -15,5 +15,5 @@ public class BitfinexAccountBalanceHistoryDto {
     private BigDecimal amount;
     private BigDecimal balance;
     private String description;
-    private Long timestamp;
+    private String timestamp;
 }

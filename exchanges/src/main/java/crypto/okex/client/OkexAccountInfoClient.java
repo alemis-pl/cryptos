@@ -1,7 +1,6 @@
 package crypto.okex.client;
 
 import com.google.gson.Gson;
-import crypto.bitfinex.authentication.BitfinexExchangeAuthentication;
 import crypto.okex.authentication.OkexExchangeAuthentication;
 import crypto.okex.domain.accountbalance.OkexAccountInfoDto;;
 import crypto.okex.domain.params.OkexParams;
