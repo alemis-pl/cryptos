@@ -1,6 +1,6 @@
 package crypto.bitfinex.client;
 
-import crypto.bitfinex.authentication.BitfinexExchangeAuthenticationSpring;
+import crypto.bitfinex.authentication.BitfinexExchangeAuthentication;
 import crypto.bitfinex.domain.accountbalance.BitfinexAccountBalanceHistoryListDto;
 import crypto.bitfinex.domain.accountbalance.BitfinexAccountBalanceListDto;
 import crypto.bitfinex.domain.params.BitfinexParams;
@@ -33,10 +33,9 @@ public class BitfinexAccountManager {
     @Value("${bitfinex.pasttrades}")
     private String pastTrades;
 
-    private BitfinexExchangeAuthenticationSpring exchangeAuthenticationSpring;
+    private BitfinexExchangeAuthentication exchangeAuthenticationSpring;
 
-    @Autowired
-    public BitfinexAccountManager(BitfinexExchangeAuthenticationSpring exchangeAuthenticationSpring) {
+    public BitfinexAccountManager(BitfinexExchangeAuthentication exchangeAuthenticationSpring) {
         this.exchangeAuthenticationSpring = exchangeAuthenticationSpring;
     }
 

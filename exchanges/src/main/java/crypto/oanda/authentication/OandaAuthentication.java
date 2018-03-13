@@ -21,7 +21,6 @@ public class OandaAuthentication {
 
     private RestTemplate restTemplate;
 
-    @Autowired
     public OandaAuthentication(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }

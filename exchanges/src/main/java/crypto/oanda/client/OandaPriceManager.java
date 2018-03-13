@@ -17,7 +17,6 @@ public class OandaPriceManager {
     private OandaUrlCreator urlCreator;
     private DbService dbService;
 
-    @Autowired
     public OandaPriceManager(OandaAuthentication authentication, OandaUrlCreator urlCreator, DbService dbService) {
         this.authentication = authentication;
         this.urlCreator = urlCreator;

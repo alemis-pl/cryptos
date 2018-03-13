@@ -22,7 +22,6 @@ public class OandaOrderManager {
     private OandaUrlCreator urlCreation;
     private DbService dbService;
 
-    @Autowired
     public OandaOrderManager(OandaAuthentication authentication, OandaUrlCreator urlCreation, DbService dbService) {
         this.authentication = authentication;
         this.urlCreation = urlCreation;

@@ -1,6 +1,6 @@
 package crypto.bitfinex.client;
 
-import crypto.bitfinex.authentication.BitfinexExchangeAuthenticationSpring;
+import crypto.bitfinex.authentication.BitfinexExchangeAuthentication;
 import crypto.bitfinex.domain.order.BitfinexCancelAllOrders;
 import crypto.bitfinex.domain.order.BitfinexCreatedOrderDto;
 import crypto.bitfinex.domain.order.BitfinexOrderDto;
@@ -45,11 +45,9 @@ public class BitfinexOrderManager {
     @Value("${bitfinex.positions.active}")
     private String activePositions;
 
+    private BitfinexExchangeAuthentication exchangeAuthenticationSpring;
 
-    private BitfinexExchangeAuthenticationSpring exchangeAuthenticationSpring;
-
-    @Autowired
-    public BitfinexOrderManager(BitfinexExchangeAuthenticationSpring exchangeAuthenticationSpring) {
+    public BitfinexOrderManager(BitfinexExchangeAuthentication exchangeAuthenticationSpring) {
         this.exchangeAuthenticationSpring = exchangeAuthenticationSpring;
     }
 

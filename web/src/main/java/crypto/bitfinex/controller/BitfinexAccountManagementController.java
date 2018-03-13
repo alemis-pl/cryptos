@@ -21,12 +21,10 @@ public class BitfinexAccountManagementController {
     private BitfinexAccountManager accountManager;
     private BitfinexOrderManager orderManager;
 
-    @Autowired
     public BitfinexAccountManagementController(BitfinexAccountManager accountManager, BitfinexOrderManager orderManager) {
         this.accountManager = accountManager;
         this.orderManager = orderManager;
     }
-
 
     @RequestMapping(method = RequestMethod.GET, value = "/balance")
     private BitfinexAccountBalanceListDto getUserAccountBalance() {
