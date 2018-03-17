@@ -1,11 +1,9 @@
 package crypto.bitstamp.authentication;
 
-import crypto.persistance.apikey.ApiKeys;
-import crypto.persistance.service.DbService;
+import crypto.apikeys.ApiKeys;
+import crypto.apikeys.ApiKeysRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -23,16 +21,16 @@ import java.util.Optional;
 public class BitstampExchangeAuthentication {
 
 
-    private DbService dbService;
+    private ApiKeysRepository apiKeysRepository;
     private RestTemplate restTemplate;
 
-    public BitstampExchangeAuthentication(DbService dbService, RestTemplate restTemplate) {
-        this.dbService = dbService;
+    public BitstampExchangeAuthentication(ApiKeysRepository apiKeysRepository, RestTemplate restTemplate) {
+        this.apiKeysRepository = apiKeysRepository;
         this.restTemplate = restTemplate;
     }
 
     private ApiKeys getUserApiKeys() {
-        return dbService.getApiKeysByExchange("bitstamp");
+        return apiKeysRepository.getByExchange("bitstamp");
     }
 
     public HttpEntity<MultiValueMap<String, String>> createHttpEntity() {

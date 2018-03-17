@@ -11,6 +11,13 @@
 
     <artifactId>analysis</artifactId>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>am</groupId>
+            <artifactId>exchanges</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

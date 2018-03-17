@@ -16,6 +16,7 @@
       <module name="analysis" target="1.8" />
       <module name="cryptos" target="1.8" />
       <module name="exchanges" target="1.8" />
+      <module name="persistance" target="1.8" />
       <module name="web" target="1.8" />
     </bytecodeTargetLevel>
   </component>

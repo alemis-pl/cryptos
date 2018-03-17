@@ -1,10 +1,8 @@
 package crypto.okcoin.authentication;
 
+import crypto.apikeys.ApiKeys;
+import crypto.apikeys.ApiKeysRepository;
 import crypto.okcoin.domain.params.OkcoinParamsModerator;
-import crypto.persistance.apikey.ApiKeys;
-import crypto.persistance.apikey.ApiKeysDto;
-import crypto.persistance.mapper.ApiKeysMapper;
-import crypto.persistance.service.DbService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.*;
 import org.apache.http.client.HttpClient;
@@ -38,10 +36,7 @@ public class OkcoinExchangeAuthentication {
     private String mainUrl;
 
     @Autowired
-    private DbService dbService;
-
-    @Autowired
-    private ApiKeysMapper apiKeysMapper;
+    private ApiKeysRepository apiKeysRepository;
 
     @Autowired
     private OkcoinRequestParamsModifier paramsModifier;
@@ -53,9 +48,8 @@ public class OkcoinExchangeAuthentication {
     private static PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
 
     //Only for tests
-    private ApiKeysDto getApiKey() {
-        ApiKeys apiKeys = dbService.getApiKeysByExchange("okex");
-        return apiKeysMapper.mapApiKeysToApiKeysDto(apiKeys);
+    private ApiKeys getApiKey() {
+        return apiKeysRepository.getByExchange("okex");
     }
 
 
@@ -105,10 +99,10 @@ public class OkcoinExchangeAuthentication {
 
     public String requestHttpPost(String endpoint, OkcoinParamsModerator paramsModerator) throws HttpException, IOException {
         Map<String, String> params = new HashMap<>();
-        ApiKeysDto apiKeysDto = getApiKey();
-        params.put("api_key", apiKeysDto.getApiKey());
+        ApiKeys apiKeys = getApiKey();
+        params.put("api_key", apiKeys.getApiKey());
         params.putAll(paramsModifier.modifyRequestParamMap(paramsModerator));
-        String sign = buildMysign(params, apiKeysDto.getApiSecretKey());
+        String sign = buildMysign(params, apiKeys.getApiSecretKey());
         params.put("sign", sign);
 
         IdleConnectionMonitor();

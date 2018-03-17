@@ -1,12 +1,11 @@
 package crypto.oanda.client;
 
+import crypto.apikeys.ApiKeys;
+import crypto.apikeys.ApiKeysRepository;
 import crypto.oanda.authentication.*;
 import crypto.oanda.domain.positions.OandaPosition;
 import crypto.oanda.domain.positions.OandaPositionsList;
-import crypto.persistance.apikey.ApiKeys;
-import crypto.persistance.service.DbService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -19,16 +18,16 @@ public class OandaPositionsManager {
 
     private OandaAuthentication authentication;
     private OandaUrlCreator urlCreation;
-    private DbService dbService;
+    private ApiKeysRepository apiKeysRepository;
 
-    public OandaPositionsManager(OandaAuthentication authentication, OandaUrlCreator urlCreation, DbService dbService) {
+    public OandaPositionsManager(OandaAuthentication authentication, OandaUrlCreator urlCreation, ApiKeysRepository apiKeysRepository) {
         this.authentication = authentication;
         this.urlCreation = urlCreation;
-        this.dbService = dbService;
+        this.apiKeysRepository = apiKeysRepository;
     }
 
     private ApiKeys getApiKeys() {
-        return dbService.getApiKeysByExchange("oanda");
+        return apiKeysRepository.getByExchange("oanda");
     }
 
     private OandaPositionsList getAllPositions() {

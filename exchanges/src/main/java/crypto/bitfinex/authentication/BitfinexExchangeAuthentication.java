@@ -1,13 +1,11 @@
 package crypto.bitfinex.authentication;
 
 import com.google.gson.Gson;
-import crypto.authentication_help.ContentGenerator;
+import crypto.apikeys.ApiKeys;
+import crypto.apikeys.ApiKeysRepository;
 import crypto.authentication_help.HmacEncoder;
 import crypto.bitfinex.domain.params.BitfinexParamsModerator;
-import crypto.persistance.apikey.ApiKeys;
-import crypto.persistance.service.DbService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.stereotype.Component;
@@ -25,13 +23,13 @@ import java.util.Optional;
 @Component
 public class BitfinexExchangeAuthentication {
 
-    private DbService dbService;
+    private ApiKeysRepository apiKeysRepository;
     private HmacEncoder hmacEncoder;
     private RestTemplate restTemplate;
     private BitfinexRequestParamsModifier requestParamsModifier;
 
-    public BitfinexExchangeAuthentication(DbService dbService, HmacEncoder hmacEncoder, RestTemplate restTemplate, BitfinexRequestParamsModifier requestParamsModifier) {
-        this.dbService = dbService;
+    public BitfinexExchangeAuthentication( ApiKeysRepository apiKeysRepository, HmacEncoder hmacEncoder, RestTemplate restTemplate, BitfinexRequestParamsModifier requestParamsModifier) {
+        this.apiKeysRepository = apiKeysRepository;
         this.hmacEncoder = hmacEncoder;
         this.restTemplate = restTemplate;
         this.requestParamsModifier = requestParamsModifier;
@@ -42,7 +40,7 @@ public class BitfinexExchangeAuthentication {
     private Mac mac;
 
     private ApiKeys getUserApiKeys() {
-        return dbService.getApiKeysByExchange("bitfinex");
+        return apiKeysRepository.getByExchange("bitfinex");
     }
 
     public HttpEntity createHttpEntity(BitfinexParamsModerator paramsModerator, String urlPath) {
