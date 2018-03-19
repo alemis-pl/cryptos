@@ -1,9 +1,9 @@
 package crypto.strategy.controller;
 
-import crypto.strategy.individual.domain.signal.SimpleStrategyResponse;
-import crypto.strategy.individual.domain.signal.SimpleStrategyDto;
-import crypto.strategy.individual.facade.SimpleStrategyFacade;
-import crypto.strategy.individual.mapper.SimpleStrategyMapper;
+import crypto.strategy.domain.simplestrategy.SimpleStrategyResponse;
+import crypto.strategy.domain.simplestrategy.SimpleStrategyDto;
+import crypto.strategy.facade.SimpleStrategyFacade;
+import crypto.strategy.mapper.SimpleStrategyMapper;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")

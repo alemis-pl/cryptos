@@ -1,6 +1,6 @@
 package crypto.repository;
 
-import crypto.strategy.individual.domain.signal.SimpleStrategy;
+import crypto.strategy.domain.simplestrategy.SimpleStrategy;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,10 +9,13 @@ import java.util.List;
 
 @Transactional
 @Repository
-public interface IndividualStrategyInfoRepository extends CrudRepository<SimpleStrategy, Long> {
+public interface SimpleStrategyRepository extends CrudRepository<SimpleStrategy, Long> {
 
     SimpleStrategy save(SimpleStrategy strategyInfo);
 
-    @Override
     List<SimpleStrategy> findAll();
+
+    List<SimpleStrategy> findAllByExchange(String exchange);
+
+    List<SimpleStrategy> findAllByAchieved(boolean achieved);
 }

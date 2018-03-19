@@ -1,10 +1,10 @@
-package crypto.strategy.individual.facade;
+package crypto.strategy.facade;
 
 import crypto.repository.DbStrategiesService;
-import crypto.strategy.individual.domain.signal.SimpleStrategyDto;
-import crypto.strategy.individual.domain.signal.SimpleStrategyResponse;
-import crypto.strategy.individual.domain.signal.SimpleStrategy;
-import crypto.strategy.individual.mapper.SimpleStrategyMapper;
+import crypto.strategy.domain.simplestrategy.SimpleStrategy;
+import crypto.strategy.domain.simplestrategy.SimpleStrategyDto;
+import crypto.strategy.domain.simplestrategy.SimpleStrategyResponse;
+import crypto.strategy.mapper.SimpleStrategyMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +22,7 @@ public class SimpleStrategyFacade {
 
     public SimpleStrategyResponse addIndividualStrategy(SimpleStrategy simpleStrategy) {
         SimpleStrategy savedStrategyInfo;
-        savedStrategyInfo =  dbStrategiesService.saveIndividualStrategy(simpleStrategy);
+        savedStrategyInfo =  dbStrategiesService.saveSimpleStrategy(simpleStrategy);
         if (savedStrategyInfo != null) {
             log.info("Individual Strategy was saved to database!");
             return new SimpleStrategyResponse(simpleStrategyMapper.convertToSimpleStrategyDto(savedStrategyInfo),true);

@@ -1,15 +1,14 @@
-package crypto.strategy.individual.domain.signal;
-
-
+package crypto.strategy.domain.simplestrategy;
 import lombok.*;
-
+import lombok.extern.slf4j.Slf4j;
 import java.math.BigDecimal;
 
+@Slf4j
+@EqualsAndHashCode
 @ToString
-@Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class SimpleStrategyDto {
 
     private Long id;
@@ -20,5 +19,6 @@ public class SimpleStrategyDto {
     private boolean achieved;
     private Long timestamp;
     private String exchange;
+    private String marketPriceIs;
 
 }

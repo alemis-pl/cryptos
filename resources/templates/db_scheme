@@ -1,3 +1,17 @@
 create table api_keys(id int not null auto_increment, api_key varchar(255), api_secret_key varchar(255), client_id varchar(255), exchange varchar(255), primary key (id));
 
-create table individual_strategy(id int not null auto_increment, instrument_type VARCHAR(20), instrument VARCHAR(20), position VARCHAR(20), exchange VARCHAR(20), price DECIMAL(12,6), price_achieved BOOLEAN, timestamp LONG, PRIMARY KEY (id));
+create table simple_strategy(id int not null auto_increment, instrument_type VARCHAR(20), instrument VARCHAR(20), position VARCHAR(20), exchange VARCHAR(20), price DECIMAL(12,6), price_achieved BOOLEAN, timestamp LONG, market_price_is VARCHAR(30), PRIMARY KEY (id));
+
+CREATE TABLE instruments(id INT NOT NULL AUTO_INCREMENT, instrument VARCHAR(20), exchange VARCHAR(20), PRIMARY KEY (id));
+
+#bitfinex instruments
+
+INSERT INTO instruments(instrument, exchange) values('btcusd', 'bitfinex');
+INSERT INTO instruments(instrument, exchange) values('ltcusd', 'bitfinex');
+INSERT INTO instruments(instrument, exchange) values('ethusd', 'bitfinex');
+INSERT INTO instruments(instrument, exchange) values('xrpusd', 'bitfinex');
+INSERT INTO instruments(instrument, exchange) values('bchusd', 'bitfinex');
+INSERT INTO instruments(instrument, exchange) values('etcusd', 'bitfinex');
+INSERT INTO instruments(instrument, exchange) values('xmrusd', 'bitfinex');
+INSERT INTO instruments(instrument, exchange) values('neousd', 'bitfinex');
+INSERT INTO instruments(instrument, exchange) values('gntusd', 'bitfinex');

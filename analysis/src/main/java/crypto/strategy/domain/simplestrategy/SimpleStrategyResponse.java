@@ -1,4 +1,4 @@
-package crypto.strategy.individual.domain.signal;
+package crypto.strategy.domain.simplestrategy;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

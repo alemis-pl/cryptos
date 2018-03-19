@@ -26,15 +26,15 @@ public class OandaPriceManager {
         return apiKeysRepository.getByExchange("oanda");
     }
 
-    public OandaPrice getPrice(String instrument) {
+    public Optional<OandaPrice> getPrice(String instrument) {
         String token = getApiKeys().getApiKey();
         String accountId = getApiKeys().getClientId();
         OandaUrlParameters urlParameters = new OandaUrlParameters(OandaUrlType.PRICES.getUrlType(),accountId, instrument);
         OandaHeadersParameters parameters = new OandaHeadersParameters(token,OandaRequestType.STANDARD_REQUEST.getRequestType());
         String url =  urlCreator.createUrl(urlParameters).orElse(new String());
+        System.out.println(url);
         HttpEntity entity = authentication.createHeaders(parameters);
         Optional<OandaPrice> price = authentication.getResponse(url,entity, OandaPrice.class,  HttpMethod.GET);
-        System.out.println(price);
-        return price.orElse(new OandaPrice());
+        return price;
     }
 }
