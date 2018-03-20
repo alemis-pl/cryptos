@@ -28,7 +28,9 @@ public class OandaPriceManager {
 
     public Optional<OandaPrice> getPrice(String instrument) {
         String token = getApiKeys().getApiKey();
+        System.out.println(token);
         String accountId = getApiKeys().getClientId();
+        System.out.println(accountId);
         OandaUrlParameters urlParameters = new OandaUrlParameters(OandaUrlType.PRICES.getUrlType(),accountId, instrument);
         OandaHeadersParameters parameters = new OandaHeadersParameters(token,OandaRequestType.STANDARD_REQUEST.getRequestType());
         String url =  urlCreator.createUrl(urlParameters).orElse(new String());
