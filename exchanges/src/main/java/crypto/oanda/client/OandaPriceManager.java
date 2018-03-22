@@ -4,6 +4,7 @@ import crypto.apikeys.ApiKeys;
 import crypto.apikeys.ApiKeysRepository;
 import crypto.oanda.authentication.*;
 import crypto.oanda.domain.price.OandaPrice;
+import crypto.oanda.domain.price.OandaPriceList;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -28,15 +29,16 @@ public class OandaPriceManager {
 
     public Optional<OandaPrice> getPrice(String instrument) {
         String token = getApiKeys().getApiKey();
-        System.out.println(token);
         String accountId = getApiKeys().getClientId();
-        System.out.println(accountId);
         OandaUrlParameters urlParameters = new OandaUrlParameters(OandaUrlType.PRICES.getUrlType(),accountId, instrument);
         OandaHeadersParameters parameters = new OandaHeadersParameters(token,OandaRequestType.STANDARD_REQUEST.getRequestType());
         String url =  urlCreator.createUrl(urlParameters).orElse(new String());
-        System.out.println(url);
         HttpEntity entity = authentication.createHeaders(parameters);
-        Optional<OandaPrice> price = authentication.getResponse(url,entity, OandaPrice.class,  HttpMethod.GET);
-        return price;
+        Optional<OandaPriceList> prices = authentication.getResponse(url,entity, OandaPriceList.class,  HttpMethod.GET);
+        if(prices.isPresent()) {
+            Optional<OandaPrice> price = prices.get().getPrices().stream().findFirst();
+            return price;
+        }
+        return Optional.ofNullable(new OandaPrice());
     }
 }

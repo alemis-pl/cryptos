@@ -4,15 +4,11 @@ import crypto.bitfinex.client.BitfinexMarketDataManager;
 import crypto.bitfinex.domain.tickers.BitfinexTicker;
 import crypto.oanda.client.OandaPriceManager;
 import crypto.oanda.domain.price.OandaPrice;
-import crypto.strategy.domain.bitfinexsupport.BitfinexMarketData;
 import crypto.strategy.domain.simplestrategy.SimpleStrategyDto;
 import crypto.strategy.domain.simplestrategy.SimpleStrategy;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import java.math.BigDecimal;
 import java.util.Optional;
 

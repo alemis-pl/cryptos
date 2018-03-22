@@ -44,7 +44,7 @@ public class SimpleStrategyManager {
         this.oandaPriceManager = oandaPriceManager;
     }
 
-    @Scheduled(fixedDelay = 1000)
+//    @Scheduled(fixedDelay = 1000)
     private void createSignal() {
         List<SimpleStrategy> strategiesList = dbStrategiesService.getAllSimpleStrategiesByIsAchieved(false);
         if (!strategiesList.isEmpty()) {

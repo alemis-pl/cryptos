@@ -2,9 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2837f929-2d23-464e-abbf-e5c96d49b1e0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/authentication/BittrexExchangeAuthentication.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/client/BittrexAccountManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/accountbalance/BittrexAccountBalanceDto.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/accountbalance/BittrexCurrencyBalanceDto.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/accountbalance/BittrexCurrencyBalanceListDto.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/java/crypto/bittrex/controller/BittrexAccountManagementController.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/bitfinexsupport/BitfinexMarketData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/instruments/Instruments.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/analysis/target/classes/crypto/strategy/domain/bitfinexsupport/BitfinexMarketData.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/analysis/target/classes/crypto/strategy/domain/instruments/Instruments.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/analysis/target/classes/crypto/strategy/manager/SimpleStrategyManager.class" afterPath="$PROJECT_DIR$/analysis/target/classes/crypto/strategy/manager/SimpleStrategyManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/analysis/target/classes/crypto/strategy/mapper/SimpleStrategyMapper.class" afterPath="$PROJECT_DIR$/analysis/target/classes/crypto/strategy/mapper/SimpleStrategyMapper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exchanges/target/classes/crypto/oanda/client/OandaPriceManager.class" afterPath="$PROJECT_DIR$/exchanges/target/classes/crypto/oanda/client/OandaPriceManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exchanges/target/classes/crypto/oanda/domain/price/OandaPrice.class" afterPath="$PROJECT_DIR$/exchanges/target/classes/crypto/oanda/domain/price/OandaPrice.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/manager/SimpleStrategyManager.java" afterPath="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/manager/SimpleStrategyManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/mapper/SimpleStrategyMapper.java" afterPath="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/mapper/SimpleStrategyMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaPriceManager.java" afterPath="$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaPriceManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaPrice.java" afterPath="$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaPrice.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/web/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/target/classes/application.properties" afterPath="$PROJECT_DIR$/web/target/classes/application.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,11 +39,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SimpleStrategyManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/manager/SimpleStrategyManager.java">
+      <file leaf-file-name="BittrexAccountManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/client/BittrexAccountManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="51" column="42" lean-forward="false" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
+            <state relative-caret-position="217">
+              <caret line="54" column="10" lean-forward="false" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1410#1411#0" expanded="true" />
+                <element signature="e#1476#1477#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BittrexExchangeAuthentication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/authentication/BittrexExchangeAuthentication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="85" column="9" lean-forward="false" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -33,63 +65,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleStrategyMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/mapper/SimpleStrategyMapper.java">
+      <file leaf-file-name="BittrexAccountManagementController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/main/java/crypto/bittrex/controller/BittrexAccountManagementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="59" column="89" lean-forward="false" selection-start-line="59" selection-start-column="89" selection-end-line="59" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndividualStrategyController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/main/java/crypto/strategy/controller/IndividualStrategyController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OandaPriceManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaPriceManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OandaPrice.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaPrice.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleStrategyRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/repository/SimpleStrategyRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DbStrategiesService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/repository/DbStrategiesService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="3" column="69" lean-forward="false" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#802#803#0" expanded="true" />
+                <element signature="e#866#867#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,8 +84,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -127,16 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bitfinex/authentication/BitfinexExchangeAuthentication.java" />
-        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bitstamp/authentication/BitstampExchangeAuthentication.java" />
-        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/okcoin/authentication/OkcoinExchangeAuthentication.java" />
-        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaAccountManager.java" />
-        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaPositionsManager.java" />
-        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaOrderManager.java" />
-        <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/domain/individualstrategy/IndividualStrategyInfoPrice.java" />
-        <option value="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.20/lombok-1.16.20.jar!/lombok/Data.class" />
-        <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/domain/individualstrategy/IndividualStrategyInfoPriceDto.java" />
-        <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/mapper/IndividualStrategyInfoMapper.java" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/domain/individualstrategy/IndividualStrategyInfoDto.java" />
         <option value="$PROJECT_DIR$/web/src/main/java/crypto/strategy/controller/IndividualStrategyController.java" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/datadownloader/MarketData.java" />
@@ -155,7 +128,6 @@
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/mapper/SimpleStrategyMapper.java" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/facade/SimpleStrategyFacade.java" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/mail/EmailService.java" />
-        <option value="$PROJECT_DIR$/web/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/manager/SimpleStrategyManager.java" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/manager/BitfinexSimpleStrategySupport.java" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/bitfinexsupport/BitfinexSimpleStrategySupport.java" />
@@ -175,9 +147,20 @@
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/repository/SimpleStrategyRepository.java" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/repository/DbStrategiesService.java" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/mail/MailCreatorService.java" />
-        <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/manager/SimpleStrategyManager.java" />
         <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/mapper/SimpleStrategyMapper.java" />
+        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaPrice.java" />
         <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaPriceManager.java" />
+        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/BittrexExchangeAuthentication.java" />
+        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/BittrexAccountBalanceDto.java" />
+        <option value="$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/manager/SimpleStrategyManager.java" />
+        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bitfinex/authentication/BitfinexExchangeAuthentication.java" />
+        <option value="$PROJECT_DIR$/web/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/accountbalance/BittrexAccountBalanceListDto.java" />
+        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/accountbalance/BittrexAccountBalanceDto.java" />
+        <option value="$PROJECT_DIR$/web/src/main/java/crypto/bittrex/controller/BittrexAccountManagementController.java" />
+        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/authentication/BittrexExchangeAuthentication.java" />
+        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/accountbalance/BittrexCurrencyBalanceDto.java" />
+        <option value="$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/client/BittrexAccountManager.java" />
       </list>
     </option>
   </component>
@@ -221,8 +204,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,42 +287,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="crypto" type="462c0819:PsiDirectoryNode" />
               <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cryptos" type="462c0819:PsiDirectoryNode" />
-              <item name="analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="bitfinexsupport" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cryptos" type="462c0819:PsiDirectoryNode" />
-              <item name="analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="instruments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cryptos" type="462c0819:PsiDirectoryNode" />
-              <item name="analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
               <item name="simplestrategy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -367,17 +314,6 @@
             <path>
               <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
               <item name="cryptos" type="462c0819:PsiDirectoryNode" />
-              <item name="analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cryptos" type="462c0819:PsiDirectoryNode" />
               <item name="exchanges" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -418,7 +354,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="bitstamp" type="462c0819:PsiDirectoryNode" />
+              <item name="authentication_help" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
@@ -428,7 +364,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="oanda" type="462c0819:PsiDirectoryNode" />
+              <item name="bitfinex" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
@@ -438,18 +374,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="oanda" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cryptos" type="462c0819:PsiDirectoryNode" />
-              <item name="exchanges" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="oanda" type="462c0819:PsiDirectoryNode" />
+              <item name="bitfinex" type="462c0819:PsiDirectoryNode" />
               <item name="domain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -460,9 +385,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="oanda" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="price" type="462c0819:PsiDirectoryNode" />
+              <item name="bittrex" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
@@ -472,7 +395,29 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="crypto" type="462c0819:PsiDirectoryNode" />
-              <item name="okcoin" type="462c0819:PsiDirectoryNode" />
+              <item name="bittrex" type="462c0819:PsiDirectoryNode" />
+              <item name="authentication" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cryptos" type="462c0819:PsiDirectoryNode" />
+              <item name="exchanges" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="crypto" type="462c0819:PsiDirectoryNode" />
+              <item name="bittrex" type="462c0819:PsiDirectoryNode" />
+              <item name="accountbalance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cryptos" type="462c0819:PsiDirectoryNode" />
+              <item name="exchanges" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="crypto" type="462c0819:PsiDirectoryNode" />
+              <item name="oanda" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cryptos" type="b2602c69:ProjectViewProjectNode" />
@@ -531,7 +476,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -702,12 +647,13 @@
       <workItem from="1521363428594" duration="3285000" />
       <workItem from="1521370441536" duration="23476000" />
       <workItem from="1521444755228" duration="10307000" />
-      <workItem from="1521528861054" duration="80000" />
+      <workItem from="1521528861054" duration="9195000" />
+      <workItem from="1521742527401" duration="10825000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283892000" />
+    <option name="totallyTimeSpent" value="303832000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="752" extended-state="6" />
@@ -729,15 +675,16 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39906102" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48043817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40375587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20500782" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28038067" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2796486" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -748,7 +695,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23943663" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -767,129 +713,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/authentication/OandaRequestType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/authentication/OandaUrlCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/authentication/OandaUrlParameters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/authentication/OandaUrlType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaAccountManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/authentication/OandaAuthentication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-61">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/okcoin/authentication/OkcoinExchangeAuthentication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="51" column="47" lean-forward="false" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaPositionsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaOrderManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="23" column="94" lean-forward="false" selection-start-line="23" selection-start-column="94" selection-end-line="23" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/java/crypto/okcoin/controller/OkcoinAccountManagementController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/annotation/ElementType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="92" column="4" lean-forward="false" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/annotation/Retention.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/annotation/Target.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="76" column="4" lean-forward="false" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.20/lombok-1.16.20.jar!/lombok/Data.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/domain/individualstrategy/IndividualStrategyInfoPriceDto.java" />
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/individual/domain/individualstrategy/IndividualStrategyInfoPrice.java" />
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaBid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaAsk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/datadownloader/MarketDataDownloader.java" />
     <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bitfinex/domain/params/BitfinexParams.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -933,22 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/simplestrategy/SimpleStrategyResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="34" lean-forward="false" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/manager/BitfinexSimpleStrategySupport.java" />
     <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/bitfinexsupport/BitfinexMarketDataList.java" />
     <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bitfinex/client/BitfinexMarketDataManager.java">
@@ -962,6 +769,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -969,16 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="75" lean-forward="true" selection-start-line="8" selection-start-column="75" selection-end-line="8" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/simplestrategy/SimpleStrategyDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -990,53 +788,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/mail/Mail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/repository/InstrumentsRepository.java" />
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/bitfinexsupport/BitfinexMarketData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/instruments/Instruments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/simplestrategy/SimpleStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/facade/SimpleStrategyFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="66" lean-forward="false" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/manager/MarketDataDownloader.java" />
     <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/repository/SimpleStrategyRepository.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1046,24 +798,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/mail/MailCreatorService.java" />
+    <entry file="file://$USER_HOME$/Desktop/Empirica/Strategies/TWAPStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8228">
+          <caret line="40" column="40" lean-forward="false" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Empirica/Strategies/ATDL_MACDStrategyExt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Empirica/Strategies/RSIStrategyExt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-513">
+          <caret line="32" column="51" lean-forward="true" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/mail/Mail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/repository/DbStrategiesService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="116">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/mail/MailCreatorService.java" />
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/manager/SimpleStrategyManager.java">
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/bitfinexsupport/BitfinexMarketData.java" />
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/instruments/Instruments.java" />
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/facade/SimpleStrategyFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="51" column="42" lean-forward="false" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="29" column="66" lean-forward="false" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/simplestrategy/SimpleStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/simplestrategy/SimpleStrategyDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/domain/simplestrategy/SimpleStrategyResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/mapper/SimpleStrategyMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,31 +884,185 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/math/MathContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-464">
+          <caret line="55" column="19" lean-forward="false" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/mapper/SimpleStrategyMapper.java">
+    <entry file="file://$USER_HOME$/Desktop/Empirica/Strategies/RsiIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="59" column="89" lean-forward="false" selection-start-line="59" selection-start-column="89" selection-end-line="59" selection-end-column="89" />
+        <state relative-caret-position="51">
+          <caret line="102" column="30" lean-forward="true" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Empirica/Strategies/HelloWorldStrategyExt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaPrice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/client/OandaPriceManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+        <state relative-caret-position="170">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaPrice.java">
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaAsk.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        <state relative-caret-position="153">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/domain/price/OandaBid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/crypto/bitstamp/controller/BitstampAccountManagementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="80" lean-forward="true" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/crypto/bitfinex/controller/BitfinexAccountManagementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/src/main/java/crypto/strategy/manager/SimpleStrategyManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/authentication_help/HmacEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="46" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bitfinex/authentication/BitfinexExchangeAuthentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="53" column="117" lean-forward="true" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/oanda/authentication/OandaAuthentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="80" column="19" lean-forward="true" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/accountbalance/BittrexCurrencyBalanceListDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="86" lean-forward="false" selection-start-line="4" selection-start-column="86" selection-end-line="4" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/crypto/bittrex/controller/BittrexAccountManagementController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="69" lean-forward="false" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
+          <folding>
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#866#867#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/authentication/BittrexExchangeAuthentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="85" column="9" lean-forward="false" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/accountbalance/BittrexCurrencyBalanceDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/domain/accountbalance/BittrexAccountBalanceDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exchanges/src/main/java/crypto/bittrex/client/BittrexAccountManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="54" column="10" lean-forward="false" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1410#1411#0" expanded="true" />
+            <element signature="e#1476#1477#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

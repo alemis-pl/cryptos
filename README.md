@@ -16,5 +16,6 @@ Application is still under development.
 ### Status ###
 * Integration with Bitfinex. 
 * Integration with OKCOIN.
-* Integration with Bitstamp under development.
 * Integration with Oanda.
+* Integration with Bittrex under development.
+* Integration with Bitstamp under development.
