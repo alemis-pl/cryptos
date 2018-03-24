@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BittrexAccountBalanceDto {
+public class BittrexAccountBalancesDto {
 
     private boolean success;
     private String message;
-    private BittrexCurrencyBalanceDto result;
+    private BittrexCurrencyBalanceListDto result;
 
 }

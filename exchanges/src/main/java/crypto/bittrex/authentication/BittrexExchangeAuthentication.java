@@ -77,7 +77,6 @@ public class BittrexExchangeAuthentication {
                     response = responseEntity.getBody();
                 }
             }
-
         }catch (HttpStatusCodeException e) {
             log.error("Could not process response! method = " + httpMethod + "; url = " + url, e.getMessage());
             log.error(e.getResponseBodyAsString());

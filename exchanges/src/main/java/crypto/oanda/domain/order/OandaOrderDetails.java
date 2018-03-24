@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Data
 public class OandaOrderDetails {
+
     private BigDecimal price;
     private OandaOrder.OandaTimeInForce timeInForce;
 

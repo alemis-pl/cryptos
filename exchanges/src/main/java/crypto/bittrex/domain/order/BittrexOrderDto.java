@@ -1,4 +1,5 @@
-package crypto.bittrex.domain.accountbalance;
+package crypto.bittrex.domain.order;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -7,10 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BittrexAccountBalanceDto {
+public class BittrexOrderDto {
 
     private boolean success;
     private String message;
-    private BittrexCurrencyBalanceDto result;
-
+    private BittrexOrderInfo result;
 }
